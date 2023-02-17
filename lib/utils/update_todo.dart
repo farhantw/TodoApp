@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:todoapp/constants/todo_style.dart';
 import 'package:todoapp/screens/home_screen.dart';
-import 'package:todoapp/utils/my_button.dart';
 
 import '../data/database.dart';
 

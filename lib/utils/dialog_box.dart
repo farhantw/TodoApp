@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/constants/todo_style.dart';
-import 'package:todoapp/utils/my_button.dart';
 
 class DialogBox extends StatelessWidget {
   final titlecontroller;
