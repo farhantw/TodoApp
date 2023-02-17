@@ -74,11 +74,16 @@ class _ToDoTileState extends State<ToDoTile> {
                 SizedBox(
                   height: 6,
                 ),
-                Text(widget.taskName, style: ToDoStyle.fontWeight600FontSize16),
+                Text(widget.taskName,
+                    maxLines: 1,
+                    overflow: TextOverflow.clip,
+                    style: ToDoStyle.fontWeight600FontSize16),
                 SizedBox(
                   height: 6,
                 ),
                 Text(widget.taskCompleted,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: ToDoStyle.fontWeight400FontSize15),
               ],
             ),

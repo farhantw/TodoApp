@@ -68,8 +68,39 @@ class _HomePageState extends State<HomePage> {
   void deleteTask(int index) {
     setState(() {
       db.toDoList.removeAt(index);
+      db.updateDataBase();
     });
-    db.updateDataBase();
+  }
+
+  void aletbottombar(int index) {
+    showModalBottomSheet(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10.0))),
+        context: context,
+        builder: (context) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              TextButton(
+                  onPressed: (() {
+                    deleteTask(index);
+                    Navigator.of(context).pop();
+                  }),
+                  child: Text(
+                    "DELETE",
+                    style: TextStyle(color: Color(0xffF35D5D)),
+                  )),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.of(context).pop();
+                  }),
+                  child: Text(
+                    "CANCEL",
+                    style: TextStyle(color: Color(0xff9E9E9E)),
+                  )),
+            ],
+          );
+        });
   }
 
   @override
@@ -111,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                     taskCompleted: db.toDoList[index][1],
                     date: db.toDoList[index][2],
                     index: index,
-                    deleteFunction: (context) => deleteTask(index),
+                    deleteFunction: (context) => aletbottombar(index),
                   );
                 },
               ),
